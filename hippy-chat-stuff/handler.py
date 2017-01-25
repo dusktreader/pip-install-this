@@ -7,6 +7,9 @@ import textwrap
 import urllib
 
 
+HIPCHAT_DEFAULT_TITLE = 'event occured in application'
+
+
 class HipchatHandler(logging.Handler):
     """
     This module provides a logging handler that sends notifications to a
@@ -17,9 +20,8 @@ class HipchatHandler(logging.Handler):
     """
 
     def __init__(
-        self, url, room, token, *args,
-        title='event occured in application',
-        **kwargs
+            self, url, room, token, title=HIPCHAT_DEFAULT_TITLE,
+            *args, **kwargs
     ):
         """
         Initializes the handler
@@ -29,6 +31,7 @@ class HipchatHandler(logging.Handler):
         :param: token: The auth token for the room
         :param: title: An optional title to include in the notification
         """
+
         self.url = '{url}/v2/room/{room}/notification'.format(
             url=url,
             room=urllib.parse.quote(room),
@@ -78,4 +81,8 @@ class HipchatHandler(logging.Handler):
         response = requests.post(
             self.url, headers=self.headers, data=self._make_payload(record),
         )
-        buzz.Buzz.require_condition(response.text != '', response.text)
+        buzz.Buzz.require_condition(
+            response is not None and response.status_code in (200, 204),
+            "hipchat api did not accept the post: {}",
+            str(response),
+        )

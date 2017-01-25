@@ -1,0 +1,5 @@
+.cache/*
+.ipynb_checkpoints/*
+hippy-chat-stuff/__pycache__/*
+hippy-chat-stuff/env/*
+pip_install_this.egg-info/*

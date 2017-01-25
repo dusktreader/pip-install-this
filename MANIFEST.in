@@ -1,0 +1,2 @@
+include .project_metadata.json
+include .hipchat.json
