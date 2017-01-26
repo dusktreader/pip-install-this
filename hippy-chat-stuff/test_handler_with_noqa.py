@@ -85,4 +85,4 @@ class TestHipchatHandler:
         computed_data = json.loads(result_data)
         assert computed_data['color'] == 'red'
         assert computed_data['notify']
-        assert computed_data['message'] == '<b>ERROR</b> {}'.format(HIPCHAT_DEFAULT_TITLE)
+        assert computed_data['message'] == '<b>ERROR</b> {}'.format(HIPCHAT_DEFAULT_TITLE)  # noqa

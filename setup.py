@@ -15,6 +15,8 @@ setuptools.setup(
     license=project_metadata['license'],
     install_requires=[
         'sh',
+        'jupyter',
+        'RISE',
     ],
     include_package_data=True,
 )

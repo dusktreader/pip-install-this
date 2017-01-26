@@ -24,6 +24,7 @@ setuptools.setup(
             'flake8',
             'pytest',
             'pytest-capturelog',
+            'sphinx',
         ],
     },
     include_package_data=True,
