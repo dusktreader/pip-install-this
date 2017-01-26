@@ -1,0 +1,23 @@
+set timeout -1
+
+set f [open "~/.pip-install-this.pw"]
+set password [read $f]
+close $f
+
+spawn travis setup pypi
+expect "Username: "
+send "pip-install-this\r"
+stty -echo
+expect "Password: "
+send "$password\r"
+stty echo
+expect "release only tagged commits? |yes|"
+send "yes\r"
+expect "deploy as wheel file too? |yes|"
+send "yes\r"
+expect "Release only from pip-install-this/hippy-chat? |yes|"
+send "yes\r"
+expect "Release from pip-install-this/changelog-updates branch? |yes|"
+send "yes\r"
+expect "Encrypt Password? |yes|"
+send "yes\r"
