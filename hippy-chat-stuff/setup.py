@@ -25,7 +25,6 @@ setuptools.setup(
             'pytest',
             'pytest-capturelog',
             'sphinx',
-            'travispy',
         ],
     },
     include_package_data=True,
