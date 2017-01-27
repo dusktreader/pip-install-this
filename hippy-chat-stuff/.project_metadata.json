@@ -5,6 +5,6 @@
     "description": "Log messages to a hipchat room",
     "license": "MIT",
     "name": "hippy-chat",
-    "release": "0.1.1",
-    "version": "0.1"
+    "release": "0.3.0",
+    "version": "0.3"
 }
